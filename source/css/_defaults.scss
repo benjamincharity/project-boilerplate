@@ -1,0 +1,23 @@
+// Colors
+$white: #fafafa;
+$lgray: #cccccc;
+$gray: #666666;
+$dgray: #333333;
+
+// Fonts
+//$hds: HDS, Arial, Helvetica, Verdana, sans-serif:
+
+$default-transition-duration: 0.2s;
+$default-transition-function: ease-in-out;
+
+$default-box-shadow-color: #333;
+$default-box-shadow-h-offset: 0px;
+$default-box-shadow-v-offset: 0px;
+$default-box-shadow-blur: 8px;
+$default-box-shadow-spread: 0;
+
+$default-border-radius: 4px;
+
+@mixin pie {
+  behavior: url(/css/PIE.htc);
+}

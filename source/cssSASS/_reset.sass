@@ -1,0 +1,163 @@
+html, body, div, span, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, abbr, address, cite, 
+code, del, dfn, em, img, ins, kbd, q, samp, small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li, 
+fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, 
+details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary, time, mark, audio, video, a
+  margin: 0
+  padding: 0
+  border: 0
+  outline: 0
+  font-size: 100%
+  vertical-align: baseline
+  background: transparent
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, #nav, section
+  display: block
+
+ul, li
+  list-style: none
+
+blockquote, q
+  quotes: none
+
+blockquote
+  &:before, &:after
+    content: ''
+    content: none
+
+q
+  &:before, &:after
+    content: ''
+    content: none
+
+a
+  text-decoration: none
+  &:focus, &:hover, &:active
+    background: transparent
+    outline: none
+
+ins
+  background-color: #ff9
+  color: #000
+  text-decoration: none
+
+mark
+  background-color: #ff9
+  color: #000
+  font-style: italic
+  font-weight: bold
+
+del
+  text-decoration: line-through
+
+abbr[title], dfn[title]
+  border-bottom: 1px dotted
+  cursor: help
+
+table
+  border-collapse: collapse
+  border-spacing: 0
+
+hr
+  display: block
+  height: 1px
+  border: 0
+  border-top: 1px solid #ccc
+  margin: 1em 0
+  padding: 0
+
+input, select
+  vertical-align: middle
+
+body
+  font-family: sans-serif
+  *font-size: small
+
+select, input, textarea, button
+  font-size: 99%
+
+pre, code, kbd, samp
+  font-family: monospace,sans-serif
+
+body, select, input, textarea
+  color: #444
+
+h1, h2, h3, h4, h5, h6
+  font-weight: normal
+
+html
+  overflow-y: scroll
+
+a
+  &:hover
+    outline: none
+  &:active
+    outline: none
+
+ol
+  list-style-type: decimal
+
+small
+  font-size: 85%
+
+strong, th
+  font-weight: bold
+
+sub
+  vertical-align: sub
+  font-size: smaller
+
+sup
+  vertical-align: super
+  font-size: smaller
+
+pre
+  padding: 15px
+  white-space: pre
+  white-space: pre-wrap
+  white-space: pre-line
+  word-wrap: break-word
+
+textarea
+  overflow: auto
+
+input
+  &[type="radio"]
+    vertical-align: text-bottom
+  &[type="checkbox"]
+    vertical-align: bottom
+
+label
+  cursor: pointer
+
+input
+  &[type=button], &[type=submit]
+    cursor: pointer
+
+button
+  cursor: pointer
+  margin: 0
+
+input, select, textarea
+  margin: 0
+
+input:invalid, textarea:invalid
+  border-radius: 1px
+  -webkit-box-shadow: 0 0 5px red
+  -moz-box-shadow:    0 0 5px red
+  -ms-box-shadow:     0 0 5px red
+  -o-box-shadow:      0 0 5px red
+  box-shadow:         0 0 5px red
+
+a:link
+  //-webkit-tap-highlight-color: #ff5e99
+
+.ie7 img
+  -ms-interpolation-mode: bicubic
+
+*
+  // turn off background repeating for all elements
+  background-repeat: none
+  // apply a natural box layout model to all elements
+  -webkit-box-sizing: border-box
+  -moz-box-sizing: border-box
+  box-sizing: border-box
