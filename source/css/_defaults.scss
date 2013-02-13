@@ -1,11 +1,9 @@
 // Colors
 $white: #fafafa;
-$lgray: #cccccc;
-$gray: #666666;
-$dgray: #333333;
-
-// Fonts
-//$hds: HDS, Arial, Helvetica, Verdana, sans-serif:
+$lgray: #ccc;
+$gray: #666;
+$dgray: #333;
+$black: #000;
 
 $default-transition-duration: 0.2s;
 $default-transition-function: ease-in-out;
@@ -18,6 +16,15 @@ $default-box-shadow-spread: 0;
 
 $default-border-radius: 4px;
 
-@mixin pie {
-  behavior: url(/css/PIE.htc);
+
+@mixin customTransition($property: all, $timing: 300ms) {
+  -webkit-transition: $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -moz-transition:    $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -ms-transition:     $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  -o-transition:      $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
+  transition:         $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
+}
+
+.symbol {
+  font-family: $websymbols;
 }
