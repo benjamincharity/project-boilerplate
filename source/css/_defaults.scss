@@ -51,6 +51,19 @@ $baseline-px: 16px;
   }
 }
 
+// mixin to provide a clear to any element
+@mixin clear {
+  &:before, &:after {
+    content: "\0020";
+    display: table;
+  }
+  &:after { clear: both; }
+  @if $ie7-support {
+    & { zoom: 1; }
+  }
+}
+
+// my custom transition function - much more humanistic than easing etc
 @mixin customTransition($property: all, $timing: 300ms) {
   -webkit-transition: $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition:    $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
