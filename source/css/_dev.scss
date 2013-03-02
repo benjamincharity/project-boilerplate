@@ -1,0 +1,167 @@
+//
+//
+//
+// $DEV
+//
+//
+// @author Benjamin Charity <ben@benjamincharity.com>
+//
+// @doc
+//  This stylesheet adds the body pseudo elements to show what media query is currently active.
+// @end
+
+
+
+//
+//
+// above small screens
+//
+@media all and (min-width: 568px) {
+  body {
+    &:before {
+      background-color: rgba(black, 0.2);
+      @include box-shadow;
+      color: #fff;
+      content: "min-width 568px -> ? -> above iphone landscape size";
+      display: block;
+      line-height: 2em;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      @include single-transition;
+      width: 100%;
+    }
+  }
+}
+//
+//
+// everything above ipad landscapte
+//
+@media all and (min-width: 770px) {
+  body {
+    &:before {
+      background-color: rgba(green, 0.4);
+      @include box-shadow;
+      color: #fff;
+      content: "min 768px -> ? -> everything above ipad landscape";
+      display: block;
+      line-height: 2em;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+//
+//
+// really wide screen
+//
+@media all and (min-width: 1140px) {
+  body {
+    &:before {
+      background-color: rgba(white, 0.4);
+      @include box-shadow;
+      content: "min 1140px -> ? -> above desktop";
+      display: block;
+      line-height: 2em;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+
+//
+//
+// everything up to ipad portrait
+//
+@media all and (max-width: 568px) {
+  body {
+    &:before {
+      background-color: rgba(red, 0.4);
+      @include box-shadow;
+      color: #fff;
+      content: "max 48em -> 768px -> everything up to ipad portrait";
+      display: block;
+      line-height: 2em;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      width: 100%;
+    }
+  }
+}
+
+
+
+//
+//
+// up to iphone landscape
+//
+@media all and (max-width: 31.25em) {
+  body {
+    &:before {
+      background-color: rgba(yellow, 0.4);
+      @include box-shadow;
+      content: "max-width 31.25em -> 480px -> up to iphone landscape";
+      display: block;
+      line-height: 2em;
+      position: absolute;
+      top: 0;
+      text-align: center;
+      @include single-transition;
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+
+//
+//
+// small screen in landscape mode
+//
+//@media all and (max-width: 30em) and (orientation : landscape) {
+  //body {
+    //&:before {
+      //background-color: rgba(255,0,255, 0.4);
+      //@include box-shadow;
+      //content: "max-width 30em and landscape";
+      //display: block;
+      //line-height: 2em;
+      //position: absolute;
+      //top: 0;
+      //text-align: center;
+      //width: 100%;
+    //}
+  //}
+//}
+
+
+//
+//
+// retinal display
+//
+//@media only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+  //body {
+    //&:before {
+      //background-color: rgba(255,255,0, 0.4);
+      //@include box-shadow;
+      //content: "retina display";
+      //display: block;
+      //line-height: 2em;
+      //position: absolute;
+      //top: 0;
+      //text-align: center;
+      //width: 100%;
+    //}
+  //}
+//}

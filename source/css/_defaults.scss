@@ -1,20 +1,28 @@
-// Colors
-$white: #fafafa;
-$lgray: #ccc;
-$gray: #666;
-$dgray: #333;
-$black: #000;
+//
+//
+//
+// $DEFAULTS
+//
+//
+// @author Benjamin Charity <ben@benjamincharity.com>
+//
+// @doc
+//  Define all defaults for transitions,
+//  define base font size,
+//  define custom mixins.
+// @end
+
 
 $default-transition-duration: 0.2s;
 $default-transition-function: ease-in-out;
 
-$default-box-shadow-color: #333;
-$default-box-shadow-h-offset: 0px;
-$default-box-shadow-v-offset: 0px;
-$default-box-shadow-blur: 8px;
+$default-box-shadow-color: #000;
+$default-box-shadow-h-offset: 0;
+$default-box-shadow-v-offset: 0;
+$default-box-shadow-blur: 6px;
 $default-box-shadow-spread: 0;
 
-$default-border-radius: 4px;
+$default-border-radius: 2px;
 
 // set a base font that should match the browser default
 $base-font-size: 16px;
@@ -53,14 +61,15 @@ $baseline-px: 16px;
 
 // mixin to provide a clear to any element
 @mixin clear {
-  &:before, &:after {
+  &::before,
+  &::after {
     content: "\0020";
     display: table;
   }
-  &:after { clear: both; }
-  @if $ie7-support {
-    & { zoom: 1; }
-  }
+  &::after { clear: both; }
+  //@if $ie7-support {
+    //& { zoom: 1; }
+  //}
 }
 
 // my custom transition function - much more humanistic than easing etc
@@ -72,6 +81,3 @@ $baseline-px: 16px;
   transition:         $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
 }
 
-.symbol {
-  font-family: $websymbols;
-}
