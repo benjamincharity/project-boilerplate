@@ -1,5 +1,4 @@
 // RESET
-// reset.scss
 // Zero out all styles to begin with an even browser playing field
 @import "reset";
 
@@ -9,17 +8,14 @@
 @import "compass";
 
 // FONTS
-// fonts/fonts.scss
 // Set up all font-faces and define font mixins
 @import "fonts/fonts";
 
 // COLORS
-// colors.scss
 // Define all colors used throughout the app
 @import "colors";
 
 // DEFAULTS
-// defaults.scss
 // Set all baseline settings and mixins from transition durations to baseline font size
 @import "defaults";
 
@@ -34,12 +30,9 @@
 
 
 // DEV
-// dev.scss
 // Creates visual cues for working with and testing media queries
 //@import "dev";
 
 // MEDIA QUERIES
-// media-queries.scss
 // Define media queries for the app
 @import "media-queries";
-
