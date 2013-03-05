@@ -24,8 +24,21 @@
 
 
 //
-// Define custom stylesheets here
+// BASE
+// Define the base styles for the site
+@import "site/base"
+
 //
+// HEADER
+// Define styles for the site header
+@import "site/header"
+
+//
+// FOOTER
+// Define styles for the site footer
+@import "site/footer"
+
+
 
 
 
