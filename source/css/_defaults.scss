@@ -81,3 +81,10 @@ $baseline-px: 16px;
   transition:         $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
 }
 
+// mixin to hide text
+@mixin hideText {
+  color: transparent;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
