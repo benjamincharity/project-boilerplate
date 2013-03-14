@@ -1,6 +1,6 @@
 # A ready to go [Middleman](http://middlemanapp.com/) Project
 
-### Using:
+### Base:
 
 - [HTML5](http://www.html5rocks.com/en/)
 - [HAML](http://haml.info/)
@@ -9,6 +9,14 @@
  - Custom Mixins
 - My [custom reset](https://github.com/benjamincharity/Resets) (based off of the [Meyer Reset](http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/) and the [HTML5 Boilerplate Reset](http://html5boilerplate.com/docs/The-style/), then tweaked over a few years)
 - Shortened folder names (`/js/`, `/i/`, `/css/`)
+
+
+### Third Party
+- [jQuery](http://jquery.com/)
+- [Modernizr](http://modernizr.com/)
+- [Sugar](http://sugarjs.com/)
+- [CSS Guidelines](https://github.com/benjamincharity/CSS-Guidelines)
+- [CSS Reset](https://github.com/benjamincharity/Resets)
 
 
 ### Instant Project Creation with Alfred:
