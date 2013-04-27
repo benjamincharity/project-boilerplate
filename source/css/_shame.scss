@@ -1,0 +1,45 @@
+//
+//
+//
+// $SHAME
+//
+//
+// @doc
+//  http://csswizardry.com/2013/04/shame-css/
+//
+//  "If anyone has to add a quick hack, they add it to shame.css, this means 
+//  that they’re putting their hacks out there in the open; it means that they 
+//  are aware that what they’re doing is hacky, it forces them to document what 
+//  the problem was, how the hack fixes it, and how they might fix it for real 
+//  given more time.
+//
+//  - If it's a hack, it goes in shame.css.
+//  - Document all hacks fully:
+//    - What part of the codebase does it relate to?
+//    - Why was this needed?
+//    - How does this fix it?
+//    - How might you fix it properly, given more time?
+//  - Do not blame the developer; if they explained why they had to do it then 
+//    their reasons are probably (hopefully) valid.
+//  - Try and clean shame.css up when you have some down time.
+//    - Even better, get a tech-debt story in which you can dedicate actual 
+//      sprint time to it.
+//
+//
+//  EXAMPLE:
+//
+//    //
+//    // Nav specificity fix.
+//    //
+//    // Someone used an ID in the header code (`#header a{}`) which trumps the
+//    // nav selectors (`.site-nav a{}`). Use !important to override it until I
+//    // have time to refactor the header stuff.
+//    //
+//    .site-nav__link {
+//        color: #BADA55 !important;
+//    }
+//
+//
+// @end
+
+

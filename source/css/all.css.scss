@@ -1,3 +1,15 @@
+////////////////////////////////////////////
+//
+// Setup
+//
+////////////////////////////////////////////
+
+
+// CONFIG
+// Set up all configurable variables and settings here
+@import "config";
+
+
 // RESET
 // https://github.com/benjamincharity/Resets
 // Zero out all styles to begin with an even browser playing field
@@ -8,20 +20,31 @@
 // Include the Compass library
 @import "compass";
 
+// BREAKPOINT
+// http://breakpoint-sass.com/
+// Include Sass plugin for quick, powerful breakpoints
+@import "breakpoint";
+
 // FONTS
 // Set up all font-faces and define font mixins
 @import "fonts/fonts";
 
-// COLORS
-// Define all colors used throughout the app
-@import "colors";
+// VARIABLES
+// Define all variables used throughout the app
+@import "variables";
 
-// DEFAULTS
-// Set all baseline settings and mixins from transition durations to baseline font size
-@import "defaults";
+// FUNCTIONS
+// Create functions to extend your css functionality
+@import "functions";
 
 
 
+
+////////////////////////////////////////////
+//
+// Site Files
+//
+////////////////////////////////////////////
 
 
 // BASE
@@ -39,11 +62,27 @@
 
 
 
+////////////////////////////////////////////
+//
+// Hacks
+//
+////////////////////////////////////////////
+
+
+// SHAME
+// Any hacks, overrides or other shit code goes here.
+@import "_shame.scss";
+
+
+
+
+////////////////////////////////////////////
+//
+// Development Files
+//
+////////////////////////////////////////////
+
 
 // DEV
 // Creates visual cues for working with and testing media queries
 //@import "dev";
-
-// MEDIA QUERIES
-// Define media queries for the app
-@import "media-queries";

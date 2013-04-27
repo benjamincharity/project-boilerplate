@@ -59,17 +59,30 @@ $baseline-px: 16px;
   }
 }
 
-// mixin to provide a clear to any element
-@mixin clear {
-  &::before,
-  &::after {
+//
+// mixin to provide a clear to any element with IE6-7 support
+//
+@mixin clear-ie {
+  &:before,
+  &:after {
     content: "\0020";
     display: table;
   }
-  &::after { clear: both; }
-  //@if $ie7-support {
-    //& { zoom: 1; }
-  //}
+  &:after { clear: both; }
+  @if $ie7-support {
+    & { zoom: 1; }
+  }
+}
+
+//
+//mixin to provide a clear to modern browsers IE8 and up
+//
+@mixin clear {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
 }
 
 // my custom transition function - much more humanistic than easing etc
@@ -87,4 +100,25 @@ $baseline-px: 16px;
   overflow: hidden;
   text-indent: 100%;
   white-space: nowrap;
+}
+
+
+//.page-wrap {
+//  width: 75%;
+//  @include breakpoint(papa-bear) { width: 60%; }
+//  @include breakpoint(mama-bear) { width: 80%; }
+//  @include breakpoint(baby-bear) { width: 95%; }
+//}
+
+
+@mixin breakpoint($point) {
+  @if $point == papa-bear {
+    @media (max-width: 1600px) { @content; }
+  }
+  @else if $point == mama-bear {
+    @media (max-width: 1250px) { @content; }
+  }
+  @else if $point == baby-bear {
+    @media (max-width: 650px)  { @content; }
+  }
 }
