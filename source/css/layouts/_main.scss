@@ -1,14 +1,15 @@
 //
 //
 //
-// $BASE
+// $MAIN
 //
 //
 // @author Benjamin Charity <ben@benjamincharity.com>
 //
 // @doc
-//  Base styles for the site.
+//  Layout styles for the base page layout.
 // @end
+
 
 html,
 body {
@@ -16,6 +17,8 @@ body {
   width: 100%;
 }
 
+// <div> containing element
 .window {
 
 }
+

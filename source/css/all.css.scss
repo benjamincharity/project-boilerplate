@@ -37,18 +37,25 @@
 
 ////////////////////////////////////////////
 //
-// Site Files
+// Modules
 //
 ////////////////////////////////////////////
 
 
-// BASE
-// Define the base styles for the site
-@import "site/base";
+// MAIN FOOTER
+// Global site footer
+@import "modules/main-footer/functions";
+@import "modules/main-footer/extends";
+@import "modules/main-footer/mixins";
+@import "modules/main-footer/module_mainFooter";
 
 // HEADER
-// Define styles for the site header
-@import "site/header";
+// Global site header
+@import "modules/main-header/functions";
+@import "modules/main-header/extends";
+@import "modules/main-header/mixins";
+@import "modules/main-header/module_mainHeader";
+@import "modules/main-header/module_mainNav";
 
 // FOOTER
 // Define styles for the site footer
