@@ -26,7 +26,8 @@
 
 If you are using [AlfredApp](http://www.alfredapp.com/) you can use my [create projects script](https://gist.github.com/benjamincharity/5048358) to instantly create up to date projects.
 
-- Define the location for new projects
+Running `create newProject` from AlfredApp will:
+
 - Clone this [boilerplate](https://github.com/benjamincharity/project-boilerplate)
 - Set up a [.rvmrc](https://rvm.io/workflow/rvmrc/)
 - Run `Bundle`
@@ -39,3 +40,5 @@ If you are using [AlfredApp](http://www.alfredapp.com/) you can use my [create p
 - Add a new remote origin based on project name
 - Add all files and create the initial commit
 - Open the project with MacVim
+
+*Don't forget to define your project location within the script first and switch your editor if needed.*
