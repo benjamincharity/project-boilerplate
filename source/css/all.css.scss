@@ -9,7 +9,6 @@
 // Set up all configurable variables and settings here
 @import "config";
 
-
 // RESET
 // https://github.com/benjamincharity/Resets
 // Zero out all styles to begin with an even browser playing field
@@ -28,10 +27,6 @@
 // FONTS
 // Set up all font-faces and define font mixins
 @import "fonts/fonts";
-
-// VARIABLES
-// Define all variables used throughout the app
-@import "variables";
 
 // FUNCTIONS
 // Create functions to extend your css functionality
