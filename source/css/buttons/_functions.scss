@@ -27,6 +27,6 @@
   &:active,
   &:hover {
     background-color: darken($btn-color, 6%);
-    box-shadow: 0 .125em $off-wht, inset 0 .063em $off-wht, inset 0 -.188em lighten($btn-color, 2%);
+    box-shadow: 0 .125em $color-white, inset 0 .063em $color-white, inset 0 -.188em lighten($btn-color, 2%);
   }
 }

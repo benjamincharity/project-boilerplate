@@ -22,8 +22,8 @@
 %button {
   border: .094em solid;
   @include border-radius(.625em);
-  box-shadow: 0 .375em .313em -.313em rgba($black,.8), inset 0 .063em $white, inset 0 -.188em rgba($black,.15);
-  color: $white;
+  box-shadow: 0 .375em .313em -.313em rgba($color-black,.8), inset 0 .063em $color-white, inset 0 -.188em rgba($color-black,.15);
+  color: $color-white;
   cursor: pointer;
   display: inline-block;
   font: bold 1em sans-serif;

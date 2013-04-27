@@ -22,7 +22,7 @@
 // BREAKPOINT
 // http://breakpoint-sass.com/
 // Include Sass plugin for quick, powerful breakpoints
-//@import "breakpoint";
+@import "breakpoint";
 
 // FONTS
 // Set up all font-faces and define font mixins
@@ -62,9 +62,9 @@
 
 // BUTTONS
 // Global button styles
-@import "modules/buttons/functions";
-@import "modules/buttons/extends";
-@import "modules/buttons/buttons";
+@import "buttons/functions";
+@import "buttons/extends";
+@import "buttons/buttons";
 
 // MAIN FOOTER
 // Global site footer
@@ -80,10 +80,6 @@
 @import "modules/main-header/mixins";
 @import "modules/main-header/module_mainHeader";
 @import "modules/main-header/module_mainNav";
-
-// FOOTER
-// Define styles for the site footer
-@import "site/footer";
 
 
 
