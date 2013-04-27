@@ -42,6 +42,12 @@
 ////////////////////////////////////////////
 
 
+// BUTTONS
+// Global button styles
+@import "modules/buttons/functions";
+@import "modules/buttons/extends";
+@import "modules/buttons/buttons";
+
 // MAIN FOOTER
 // Global site footer
 @import "modules/main-footer/functions";
