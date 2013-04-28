@@ -8,7 +8,11 @@
  - [Compass](http://compass-style.org/)
  - [Breakpoints](http://breakpoint-sass.com/)
  - Custom Mixins
-- My [custom reset](https://github.com/benjamincharity/Resets) (based off of the [Meyer Reset](http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/) and the [HTML5 Boilerplate Reset](http://html5boilerplate.com/docs/The-style/), then tweaked over a few years)
+- My [custom reset](https://github.com/benjamincharity/Resets) (heavily based off
+  of [normalize.css](http://github.com/necolas/normalize.css) the
+  [Meyer Reset](http://meyerweb.com/eric/thoughts/2007/05/01/reset-reloaded/)
+  and the [HTML5 Boilerplate Reset](http://html5boilerplate.com/docs/The-style/),
+  then tweaked over a few years)
 - Shortened folder names (`/js/`, `/i/`, `/css/`)
 - [Git](http://github.com/)
 - [RVMRC](http://rvm.io/workflow/rvmrc/)
@@ -24,7 +28,9 @@
 
 ### Instant Project Creation with Alfred:
 
-If you are using [AlfredApp](http://www.alfredapp.com/) you can use my [create projects script](https://gist.github.com/benjamincharity/5048358) to instantly create up to date projects.
+If you are using [AlfredApp](http://www.alfredapp.com/) you can use my
+[create projects script](https://gist.github.com/benjamincharity/5048358) to
+instantly create up to date projects.
 
 Running `create newProject` from AlfredApp will:
 
@@ -41,4 +47,5 @@ Running `create newProject` from AlfredApp will:
 - Add all files and create the initial commit
 - Open the project with MacVim
 
-*Don't forget to define your project location within the script first and switch your editor if needed.*
+*Don't forget to define your project location within the script first and switch
+your editor if needed.*
