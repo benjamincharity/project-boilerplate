@@ -1,0 +1,12 @@
+/* TEAM */
+  One Man Band: Benjamin Charity
+  Contact: ben [at] benjamincharity.com
+  Twitter: @benjamincharity
+  From: Atlanta, GA, USA
+
+
+/* SITE */
+  Last update: 04/20/2013
+  Language: English
+  Doctype: HTML5
+  IDE: Vim, iTerm2, Photoshop, Illustrator, Transmit

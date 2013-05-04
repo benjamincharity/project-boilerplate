@@ -112,13 +112,13 @@ $baseline-px: 16px;
 
 
 @mixin breakpoint($point) {
-  @if $point == papa-bear {
-    @media (max-width: 1600px) { @content; }
+  @if $point == desktop {
+    @media (min-width: 1600px) { @content; }
   }
-  @else if $point == mama-bear {
-    @media (max-width: 1250px) { @content; }
+  @else if $point == tablet {
+    @media (min-width: 1250px) { @content; }
   }
-  @else if $point == baby-bear {
-    @media (max-width: 650px)  { @content; }
+  @else if $point == mobile {
+    @media (min-width: 650px)  { @content; }
   }
 }
