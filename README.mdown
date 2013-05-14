@@ -1,4 +1,4 @@
-# A ready to go [Middleman](http://middlemanapp.com/) Project
+# My project boilerplate built with [Middleman](http://middlemanapp.com/)
 
 ### Base:
 
