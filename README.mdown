@@ -1,7 +1,8 @@
-# My project boilerplate built with [Middleman](http://middlemanapp.com/)
+# My project boilerplate
 
 ### Base:
 
+- [Middleman](http://middlemanapp.com/)
 - [HTML5](http://www.html5rocks.com/en/)
 - [ERB](http://haml.info/)
 - [SCSS](http://sass-lang.com/)
