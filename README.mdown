@@ -1,7 +1,8 @@
-# A ready to go [Middleman](http://middlemanapp.com/) Project
+# My project boilerplate
 
 ### Base:
 
+- [Middleman](http://middlemanapp.com/)
 - [HTML5](http://www.html5rocks.com/en/)
 - [ERB](http://haml.info/)
 - [SCSS](http://sass-lang.com/)
@@ -34,12 +35,13 @@ instantly create up to date projects.
 
 Running `create newProject` from AlfredApp will:
 
-- Clone this [boilerplate](https://github.com/benjamincharity/project-boilerplate)
+- Clone this [boilerplate](https://github.com/benjamincharity/project-boilerplate) 
+into the defined directory as `newProject`
 - Set up a [.rvmrc](https://rvm.io/workflow/rvmrc/)
 - Run `Bundle`
 - Curl the latest [jQuery](http://jquery.com/)
 - Curl the latest [Modernizr](http://modernizr.com/)
-- Curl the latest [Surgar](http://sugarjs.com/)
+- Curl the latest [Sugar](http://sugarjs.com/)
 - Curl my [CSS Reset](https://github.com/benjamincharity/Resets)
 - Initialize Git
 - Remove the boilerplate remote
@@ -48,4 +50,4 @@ Running `create newProject` from AlfredApp will:
 - Open the project with MacVim
 
 *Don't forget to define your project location within the script first and switch
-your editor if needed.*
+your editor of choice if needed.*
