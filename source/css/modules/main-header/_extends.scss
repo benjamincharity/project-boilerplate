@@ -11,8 +11,20 @@
 //
 //  USAGE:
 //
+//    %lightBlue {
+//      color: skyblue;
+//      opacity: 1;
+//    }
+//
 //    .foo {
-//      @extend %lightblue;
+//      @extend %lightBlue;
+//    }
+//
+//  OUTPUT:
+//
+//    .foo {
+//      color: skyblue;
+//      opacity: 1;
 //    }
 //
 // @end
