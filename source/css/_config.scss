@@ -99,11 +99,16 @@ $default-border-radius              : 2px;
 //
 ////////////////////////////////////////////
 
-$breakpoint-to-ems                  : true;
+$breakpoint-to-ems        : true;
 
-$breakpoint-small                   : 30em;
-$breakpoint-medium                  : 40em;
-$breakpoint-large                   : 50em;
+$breakpoint-small         : max-width 520px;
+$breakpoint-medium        : 520px;
+$breakpoint-medium-large  : 768px;
+$breakpoint-large         : 1000px;
+$breakpoint-very-large    : 1400px;
+
+$breakpoint-only-medium   : $breakpoint-medium $breakpoint-large;
+$breakpoint-only-large    : $breakpoint-large $breakpoint-very-large;
 
 
 
@@ -200,4 +205,17 @@ $site-width                         : 100%;
 
 
 
+
+////////////////////////////////////////////
+//
+// Grid Helpers
+//
+////////////////////////////////////////////
+
+// total width of page
+$width : $site-width;
+// number of columns
+$columns: 6;
+// margin between columns
+$col_margin: 2%;
 

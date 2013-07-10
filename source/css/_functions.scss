@@ -1,33 +1,20 @@
 //
 //
 //
-// $DEFAULTS
+// $FUNCTIONS
 //
 //
 // @author Benjamin Charity <ben@benjamincharity.com>
 //
 // @doc
-//  Define all defaults for transitions,
-//  define base font size,
-//  define custom mixins.
+//  Define custom mixins and functions
 // @end
 
 
-$default-transition-duration: 0.2s;
-$default-transition-function: ease-in-out;
-
-$default-box-shadow-color: #000;
-$default-box-shadow-h-offset: 0;
-$default-box-shadow-v-offset: 0;
-$default-box-shadow-blur: 6px;
-$default-box-shadow-spread: 0;
-
-$default-border-radius: 2px;
-
 // set a base font that should match the browser default
-$base-font-size: 16px;
+//$base-font-size: 16px;
 
-$site-width: 100%;
+//$site-width: 100%;
 
 // Baseline, measured in pixels
 // The value should be the same as the font-size value for the html element
@@ -59,6 +46,23 @@ $baseline-px: 16px;
   }
 }
 
+
+//
+// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
+//
+@function emCalc($pxWidth) {
+  @return $pxWidth / $base-font-size * 1em;
+}
+
+
+
+
+///////////////////////////
+//
+// Pseudo Element Mixins
+//
+///////////////////////////
+
 //
 // mixin to provide a clear to any element with IE6-7 support
 //
@@ -85,7 +89,15 @@ $baseline-px: 16px;
   }
 }
 
-// my custom transition function - much more humanistic than easing etc
+
+
+
+///////////////////////////
+//
+// My custom transition function - much more humanistic than easing etc
+//
+///////////////////////////
+
 @mixin customTransition($property: all, $timing: 300ms) {
   -webkit-transition: $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
   -moz-transition:    $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
@@ -94,7 +106,15 @@ $baseline-px: 16px;
   transition:         $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985);
 }
 
-// mixin to hide text
+
+
+
+///////////////////////////
+//
+// Hide text
+//
+///////////////////////////
+
 @mixin hideText {
   color: transparent;
   overflow: hidden;
@@ -103,22 +123,80 @@ $baseline-px: 16px;
 }
 
 
-//.page-wrap {
-//  width: 75%;
-//  @include breakpoint(papa-bear) { width: 60%; }
-//  @include breakpoint(mama-bear) { width: 80%; }
-//  @include breakpoint(baby-bear) { width: 95%; }
-//}
 
 
-@mixin breakpoint($point) {
-  @if $point == desktop {
-    @media (min-width: 1600px) { @content; }
+///////////////////////////
+//
+// Custom Animation
+//
+///////////////////////////
+
+@mixin animation($duration: 200ms, $delay: 0, $count: 1) {
+  animation-duration: $duration;
+  animation-delay: $delay;
+  animation-iteration-count: $count;
+  -moz-animation-duration: $duration;
+  -moz-animation-delay: $delay;
+  -moz-animation-iteration-count: $count;
+  -webkit-animation-duration: $duration;
+  -webkit-animation-delay: $delay;
+  -webkit-animation-iteration-count: $count;
+  -ms-animation-duration: $duration;
+  -ms-animation-delay: $delay;
+  -ms-animation-iteration-count: $count;
+  -o-animation-duration: $duration;
+  -o-animation-delay: $delay;
+  -o-animation-iteration-count: $count;
+}
+
+
+
+
+///////////////////////////
+//
+// Create a grid
+// http://bjorkoy.com/2010/05/css-grids-with-sass/
+//
+///////////////////////////
+
+/* math magic */
+$col_width: ($width - ($col_margin * ($columns - 1))) / $columns;
+$col_total_width: $col_width + $col_margin;
+
+/* create row div */
+@mixin row() {
+  @include clear;
+  width: $width;
+}
+
+/* create a column div */
+@mixin col($n: 1) {
+  float: left;
+  @include span($n);
+}
+
+/* make an element span n columns */
+@mixin span($n: 1) {
+  width: ($n * $col_width) + (($n - 1) * $col_margin);
+  @if $n == $columns {
+    margin-right: 0;
   }
-  @else if $point == tablet {
-    @media (min-width: 1250px) { @content; }
+  @else {
+    margin-right: $col_margin;
   }
-  @else if $point == mobile {
-    @media (min-width: 650px)  { @content; }
-  }
+}
+
+/* the last column in a row needs this */
+@mixin last() {
+  margin-right: 0;
+}
+
+/* prepend n blank columns */
+@mixin prepend($n: 1) {
+  margin-left: $col_total_width * $n
+}
+
+/* append n blank columns */
+@mixin append($n: 1) {
+  margin-right: $col_total_width * $n + $col_margin
 }
