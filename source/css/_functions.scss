@@ -159,23 +159,23 @@ $baseline-px: 16px;
 //
 ///////////////////////////
 
-/* math magic */
+// maths
 $col_width: ($width - ($col_margin * ($columns - 1))) / $columns;
 $col_total_width: $col_width + $col_margin;
 
-/* create row div */
+// create row div
 @mixin row() {
   @include clear;
   width: $width;
 }
 
-/* create a column div */
+// create a column div
 @mixin col($n: 1) {
   float: left;
   @include span($n);
 }
 
-/* make an element span n columns */
+// make an element span n columns
 @mixin span($n: 1) {
   width: ($n * $col_width) + (($n - 1) * $col_margin);
   @if $n == $columns {
@@ -186,17 +186,22 @@ $col_total_width: $col_width + $col_margin;
   }
 }
 
-/* the last column in a row needs this */
+// the last column in a row needs this
 @mixin last() {
   margin-right: 0;
 }
 
-/* prepend n blank columns */
+// if you need to overwrite a previous `last()`, use this
+@mixin resetLast() {
+  margin-right: $col_margin;
+}
+
+// prepend n blank columns
 @mixin prepend($n: 1) {
   margin-left: $col_total_width * $n
 }
 
-/* append n blank columns */
+// append n blank columns
 @mixin append($n: 1) {
   margin-right: $col_total_width * $n + $col_margin
 }
