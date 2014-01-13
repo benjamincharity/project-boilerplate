@@ -7,22 +7,18 @@
 
 // CONFIG
 // Set up all configurable variables and settings here
-@import "config";
+@import "global_config";
 
 // RESET
 // https://github.com/benjamincharity/Resets
 // Zero out all styles to begin with an even browser playing field
-@import "reset";
+@import "global_reset";
 
 // COMPASS
 // http://compass-style.org/
 // Include the Compass library
 @import "compass";
 
-// BREAKPOINT
-// http://breakpoint-sass.com/
-// Include Sass plugin for quick, powerful breakpoints
-@import "breakpoint";
 
 // FONTS
 // Set up all font-faces and define font mixins
@@ -30,7 +26,7 @@
 
 // FUNCTIONS
 // Create functions to extend your css functionality
-@import "functions";
+@import "global_functions";
 
 
 
@@ -93,7 +89,7 @@
 
 // SHAME
 // Any hacks, overrides or other shit code goes here.
-@import "_shame.scss";
+@import "shame.scss";
 
 
 

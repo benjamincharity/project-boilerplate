@@ -47,11 +47,13 @@
 #   end
 # end
 
-set :css_dir, 'css'
-
-set :js_dir, 'js'
-
-set :images_dir, 'i'
+preferred_syntax = :scss
+css_dir = 'css'
+sass_dir = 'scss'
+images_dir = 'images'
+javascripts_dir = 'js'
+line_comments = true
+output_style = :expanded
 
 # Build-specific configuration
 configure :build do
