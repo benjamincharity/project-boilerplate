@@ -155,6 +155,29 @@ $baseline-px: 16px;
 
 ///////////////////////////
 //
+// Placeholders
+//
+///////////////////////////
+@mixin placeholders {
+  &::-webkit-input-placeholder {
+    @content
+  }
+  &:-moz-placeholder {
+    @content
+  }
+  &::-moz-placeholder {
+    @content
+  }
+  &:-ms-input-placeholder {
+    @content
+  }
+}
+
+
+
+
+///////////////////////////
+//
 // Create a grid
 // http://bjorkoy.com/2010/05/css-grids-with-sass/
 //
@@ -224,6 +247,42 @@ $col_total_width: $col_width + $col_margin;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility:    hidden;
   -ms-backface-visibility:     hidden;
+}
+
+
+
+///////////////////////////
+//
+// Create Pseudo Element Triangles
+//
+///////////////////////////
+@mixin pseudo_triangle($direction, $color, $width, $height, $position:"", $centered:"") {
+
+  @if $direction == down {
+    border-top: $height solid $color;
+  } @else if $direction == up {
+    border-bottom: $height solid $color;
+  }
+
+  border-left: $width solid transparent;
+  border-right: $width solid transparent;
+  content: "";
+  display: block;
+  height: 0;
+  position: absolute;
+
+  @if #{$centered} == true {
+    left: 50%;
+    margin-left: -$width;
+  }
+
+  @if $position == top {
+    top: -$height;
+  } @else if $position == bottom {
+    bottom: -$height;
+  }
+
+  width: 0;
 }
 
 
