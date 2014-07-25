@@ -178,6 +178,24 @@ $baseline-px: 16px;
 
 ///////////////////////////
 //
+// CSS Columns
+//
+///////////////////////////
+
+@mixin columns($count: 1, $spacing: 20px) {
+  -webkit-column-count : $count;
+  -moz-column-count    : $count;
+  column-count         : $count;
+  -webkit-column-gap : $spacing;
+  -moz-column-gap    : $spacing;
+  column-gap         : $spacing;
+}
+
+
+
+
+///////////////////////////
+//
 // Create a grid
 // http://bjorkoy.com/2010/05/css-grids-with-sass/
 //
