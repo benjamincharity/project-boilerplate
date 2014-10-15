@@ -354,5 +354,47 @@ $col_total_width: $col_width + $col_margin;
   flex             : $number;
 }
 
+@mixin flex-align($position: center) {
+  -webkit-box-align   : $position;
+  -webkit-align-items : $position;
+  -moz-box-align      : $position;
+  -ms-flex-align      : $position;
+  align-items         : $position;
+}
+
+@mixin flex-pack($position: center) {
+  -webkit-box-pack        : $position;
+  -webkit-justify-content : $position;
+  -moz-box-pack           : $position;
+  -ms-flex-pack           : $position;
+}
 
 
+
+
+
+///////////////////////////
+//
+// Breakpoints
+// http://css-tricks.com/conditional-media-query-mixins/
+//
+///////////////////////////
+
+
+@mixin breakpoint($point) {
+  @if $point == breakpoint-only-small {
+    @media (max-width: 500px) { @content; }
+  }
+  @else if $point == breakpoint-medium {
+    @media (min-width: 500px) { @content; }
+  }
+  @else if $point == breakpoint-medium-large {
+    @media (min-width: 768px) { @content; }
+  }
+  @else if $point == breakpoint-large {
+    @media (min-width: 1000px)  { @content; }
+  }
+  @else if $point == breakpoint-very-large {
+    @media (min-width: 1200px)  { @content; }
+  }
+}
