@@ -12,7 +12,7 @@
 
 
 // set a base font that should match the browser default
-//$base-font-size: 16px;
+//$base_font_size: 16px;
 
 //$site-width: 100%;
 
@@ -20,38 +20,40 @@
 // The value should be the same as the font-size value for the html element
 // If the html element's font-size is set to 62.5% (of the browser's default font-size of 16px),
 // then the variable below would be 10px.
-$baseline-px: 16px;
+$baseline_px: 16px;
 
-@mixin rem($property, $px-values) {
+@mixin rem($property, $px_values) {
   // Convert the baseline into rems
-  $baseline-rem: $baseline-px / 1rem;
+  $baseline_rem: $baseline_px / 1rem;
   // Print the first line in pixel values
-  #{$property}: $px-values;
+  #{$property}: $px_values;
   // If there is only one (numeric) value, return the property/value line for it.
-  @if type-of($px-values) == "number" {
-    #{$property}: $px-values / $baseline-rem; }
-  @else {
+  // scss-lint:disable NameFormat
+  @if type-of($px_values) == 'number' {
+    #{$property}: $px_values / $baseline_rem;
+  } @else {
     // Create an empty list that we can dump values into
-    $rem-values: unquote("");
-    @each $value in $px-values {
+    $rem_values: unquote('');
+    @each $value in $px_values {
       // If the value is zero, return 0
       @if $value == 0 {
-        $rem-values: append($rem-values, $value); }
-      @else {
-        $rem-values: append($rem-values, $value / $baseline-rem);
+        $rem_values: append($rem_values, $value);
+      } @else {
+        $rem_values: append($rem_values, $value / $baseline_rem);
       }
     }
     // Return the property and its list of converted values
-    #{$property}: $rem-values;
+    #{$property}: $rem_values;
   }
+  // scss-lint:enable NameFormat
 }
 
 
 //
-// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#px)
+// Working in ems is annoying. Think in pixels by using this handy function
 //
-@function emCalc($pxWidth) {
-  @return $pxWidth / $base-font-size * 1em;
+@function em_calc($px_width) {
+  @return $px_width / $base_font_size * 1em;
 }
 
 
@@ -66,12 +68,13 @@ $baseline-px: 16px;
 //
 // mixin to provide a clear to any element with IE6-7 support
 //
-@mixin clear-ie {
+@mixin clear_ie {
   &:before,
   &:after {
-    content: "\0020";
+    content: '\0020';
     display: table;
   }
+
   &:after {
     clear: both;
   }
@@ -83,42 +86,9 @@ $baseline-px: 16px;
 @mixin clear {
   &::after {
     clear: both;
-    content: "";
+    content: '';
     display: table;
   }
-}
-
-
-
-
-///////////////////////////
-//
-// My custom transition function - more humanistic transition
-//
-///////////////////////////
-
-@mixin customTransition($property: all, $timing: 300ms, $delay: 0) {
-  -webkit-transition: $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985) $delay;
-  -moz-transition:    $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985) $delay;
-  -ms-transition:     $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985) $delay;
-  -o-transition:      $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985) $delay;
-  transition:         $property $timing cubic-bezier(0.26, 0.86, 0.44, 0.985) $delay;
-}
-
-
-
-
-///////////////////////////
-//
-// Hide text
-//
-///////////////////////////
-
-@mixin hideText {
-  color: transparent;
-  overflow: hidden;
-  text-indent: 100%;
-  white-space: nowrap;
 }
 
 
@@ -131,12 +101,65 @@ $baseline-px: 16px;
 //
 ///////////////////////////
 
-@mixin keyframes($name) {
-  @-o-keyframes $name { @content };
-  @-moz-keyframes $name { @content };
-  @-ms-keyframes $name { @content };
-  @-webkit-keyframes $name { @content };
-  @-keyframes $name { @content };
+//@mixin keyframes($name) {
+  //@-o-keyframes $name { @content };
+  //@-moz-keyframes $name { @content };
+  //@-ms-keyframes $name { @content };
+  //@-webkit-keyframes $name { @content };
+  //@-keyframes $name { @content };
+//}
+
+
+
+
+///////////////////////////
+//
+// Vendor prefix items
+//
+///////////////////////////
+
+// scss-lint:disable VendorPrefix
+@mixin vendor_prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}
+// scss-lint:enable VendorPrefix
+
+
+
+
+///////////////////////////
+//
+// My custom transition function - much more humanistic than easing etc
+//
+///////////////////////////
+
+@mixin custom_transition($property: all, $timing: 300ms, $delay: 0) {
+  // scss-lint:disable NameFormat
+  @include vendor_prefix(
+    transition,
+    $property $timing cubic-bezier(.26, .86, .44, .985) $delay
+  );
+  // scss-lint:enable NameFormat
+}
+
+
+
+
+///////////////////////////
+//
+// Hide text
+//
+///////////////////////////
+
+@mixin hide_text {
+  color: transparent;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
 }
 
 
@@ -149,23 +172,20 @@ $baseline-px: 16px;
 ///////////////////////////
 
 @mixin animation($duration: 200ms, $delay: 0, $count: 1) {
-  -webkit-animation-iteration-count : $count;
-  -moz-animation-iteration-count    : $count;
-  -ms-animation-iteration-count     : $count;
-  -o-animation-iteration-count      : $count;
-  animation-iteration-count         : $count;
+  @include vendor_prefix(
+    animation-iteration-count,
+    $count
+  );
 
-  -webkit-animation-duration : $duration;
-  -moz-animation-duration    : $duration;
-  -ms-animation-duration     : $duration;
-  -o-animation-duration      : $duration;
-  animation-duration         : $duration;
+  @include vendor_prefix(
+    animation-duration,
+    $duration
+  );
 
-  -moz-animation-delay    : $delay;
-  -webkit-animation-delay : $delay;
-  -ms-animation-delay     : $delay;
-  -o-animation-delay      : $delay;
-  animation-delay         : $delay;
+  @include vendor_prefix(
+    animation-iteration-delay,
+    $delay
+  );
 }
 
 
@@ -174,23 +194,27 @@ $baseline-px: 16px;
 ///////////////////////////
 //
 // Placeholders
-// Use inside selector block
 //
 ///////////////////////////
+// scss-lint:disable VendorPrefix
 @mixin placeholders {
   &::-webkit-input-placeholder {
     @content
   }
+
   &:-moz-placeholder {
     @content
   }
+
   &::-moz-placeholder {
     @content
   }
+
   &:-ms-input-placeholder {
     @content
   }
 }
+// scss-lint:enable VendorPrefix
 
 
 
@@ -202,12 +226,15 @@ $baseline-px: 16px;
 ///////////////////////////
 
 @mixin columns($count: 1, $spacing: 20px) {
-  -webkit-column-count : $count;
-  -moz-column-count    : $count;
-  column-count         : $count;
-  -webkit-column-gap : $spacing;
-  -moz-column-gap    : $spacing;
-  column-gap         : $spacing;
+  @include vendor_prefix(
+    column-count,
+    $count
+  );
+
+  @include vendor_prefix(
+    column-gap,
+    $spacing
+  );
 }
 
 
@@ -239,10 +266,10 @@ $col_total_width: $col_width + $col_margin;
 // make an element span n columns
 @mixin span($n: 1) {
   width: ($n * $col_width) + (($n - 1) * $col_margin);
+
   @if $n == $columns {
     margin-left: 0;
-  }
-  @else {
+  } @else {
     margin-left: $col_margin;
   }
 }
@@ -253,22 +280,18 @@ $col_total_width: $col_width + $col_margin;
 }
 
 // if you need to overwrite a previous `first()`, use this
-@mixin resetFirst() {
+@mixin reset_first() {
   margin-left: $col_margin;
 }
 
 // prepend n blank columns
 @mixin prepend($n: 1) {
-  margin-left: $col_total_width * $n
+  margin-left: $col_total_width * $n;
 }
 
 // append n blank columns
 @mixin append($n: 1) {
-  margin-right: $col_total_width * $n + $col_margin
-}
-
-@mixin resetFirst() {
-  margin-left: $col_margin;
+  margin-right: $col_total_width * $n + $col_margin;
 }
 
 
@@ -279,11 +302,11 @@ $col_total_width: $col_width + $col_margin;
 // CSS Backface Flicker Fix
 //
 ///////////////////////////
-
-@mixin backface-flicker-fix() {
-  -webkit-backface-visibility: hidden;
-  -moz-backface-visibility:    hidden;
-  -ms-backface-visibility:     hidden;
+@mixin backface_flicker_fix() {
+  @include vendor_prefix(
+    backface-visibility,
+    hidden
+  );
 }
 
 
@@ -293,7 +316,7 @@ $col_total_width: $col_width + $col_margin;
 // Create Pseudo Element Triangles
 //
 ///////////////////////////
-@mixin pseudo_triangle($direction, $color, $width, $height, $position:"", $centered:"") {
+@mixin pseudo_triangle($direction, $color, $width, $height, $position:'', $centered:'') {
 
   @if $direction == down {
     border-top: $height solid $color;
@@ -303,7 +326,7 @@ $col_total_width: $col_width + $col_margin;
 
   border-left: $width solid transparent;
   border-right: $width solid transparent;
-  content: "";
+  content: '';
   display: block;
   height: 0;
   position: absolute;
@@ -332,7 +355,7 @@ $col_total_width: $col_width + $col_margin;
 // https://github.com/doctyper/flexie
 //
 //
-// flex-container() direction is required.
+// flex_container() direction is required.
 //
 // Possible values:
 //  - vertical
@@ -340,64 +363,65 @@ $col_total_width: $col_width + $col_margin;
 //
 ///////////////////////////
 
-@mixin flex-container($direction) {
-  -webkit-box-orient     : $direction;
-  -moz-box-orient        : $direction;
-  box-orient             : $direction;
+@mixin flex_container($direction) {
+  @include vendor_prefix(
+    box-orient,
+    $direction
+  );
 
-  // we must translate the new syntax into the
-  // old syntax for IE
+  // Translate the new syntax into the old syntax for IE
   @if $direction == vertical {
-    -ms-flex-direction     : column;
-    -webkit-flex-direction : column;
-    flex-direction         : column;
+    @include vendor_prefix(
+      flex-direction,
+      column
+    );
   } @else {
-    -ms-flex-direction     : row;
-    -webkit-flex-direction : row;
-    flex-direction         : row;
+    @include vendor_prefix(
+      flex-direction,
+      row
+    );
   }
 
+  // scss-lint:disable DuplicateProperty
   display: -ms-flexbox;
   display: -webkit-box;
   display: -moz-box;
   display: -webkit-flexbox;
   display: box;
   display: flex;
+  // scss-lint:enable DuplicateProperty
 }
 
-@mixin flex-component($number: 1) {
+@mixin flex_component($number: 1) {
+  // scss-lint:disable VendorPrefix
   -webkit-box-flex : $number;
   -webkit-flex     : $number;
   -moz-box-flex    : $number;
   -ms-flex         : $number;
   flex             : $number;
+  // scss-lint:enable VendorPrefix
 }
 
-@mixin flex-align($position: center) {
+@mixin flex_align($position: center) {
+  // scss-lint:disable VendorPrefix
   -webkit-box-align   : $position;
   -webkit-align-items : $position;
   -moz-box-align      : $position;
-  -ms-flex-align      : $position;
+  -ms-flex_align      : $position;
   align-items         : $position;
+  // scss-lint:enable VendorPrefix
 }
 
-@mixin flex-pack($position: center) {
+@mixin flex_pack($position: center) {
+  // scss-lint:disable VendorPrefix
   -webkit-box-pack        : $position;
   -webkit-justify-content : $position;
   -moz-box-pack           : $position;
-  -ms-flex-pack           : $position;
+  -ms-flex_pack           : $position;
+  // scss-lint:enable VendorPrefix
 }
 
-@mixin flex-center() {
-  -webkit-box-align: center;
-  -webkit-align-items: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  -webkit-justify-content: center;
-  justify-content: center;
-}
+
 
 
 
@@ -412,17 +436,34 @@ $col_total_width: $col_width + $col_margin;
 @mixin breakpoint($point) {
   @if $point == breakpoint-only-small {
     @media (max-width: 500px) { @content; }
-  }
-  @else if $point == breakpoint-medium {
+  } @else if $point == breakpoint-medium {
     @media (min-width: 500px) { @content; }
-  }
-  @else if $point == breakpoint-medium-large {
+  } @else if $point == breakpoint-medium-large {
     @media (min-width: 768px) { @content; }
-  }
-  @else if $point == breakpoint-large {
+  } @else if $point == breakpoint-large {
     @media (min-width: 1000px)  { @content; }
-  }
-  @else if $point == breakpoint-very-large {
+  } @else if $point == breakpoint-very-large {
     @media (min-width: 1200px)  { @content; }
   }
 }
+
+
+
+
+///////////////////////////
+//
+// Animations
+// Create vendor prefixed keyframes
+//
+///////////////////////////
+
+@mixin keyframes($name) {
+  // scss-lint:disable VendorPrefix
+  @-o-keyframes $name { @content };
+  @-moz-keyframes $name { @content };
+  @-ms-keyframes $name { @content };
+  @-webkit-keyframes $name { @content };
+  @-keyframes $name { @content };
+  // scss-lint:enable VendorPrefix
+}
+
