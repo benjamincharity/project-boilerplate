@@ -459,11 +459,11 @@ $col_total_width: $col_width + $col_margin;
 
 @mixin keyframes($name) {
   // scss-lint:disable VendorPrefix
-  @-o-keyframes $name { @content };
-  @-moz-keyframes $name { @content };
-  @-ms-keyframes $name { @content };
-  @-webkit-keyframes $name { @content };
-  @-keyframes $name { @content };
+  @-o-keyframes #{$name} { @content };
+  @-moz-keyframes #{$name} { @content };
+  @-ms-keyframes #{$name} { @content };
+  @-webkit-keyframes #{$name} { @content };
+  @-keyframes #{$name} { @content };
   // scss-lint:enable VendorPrefix
 }
 
