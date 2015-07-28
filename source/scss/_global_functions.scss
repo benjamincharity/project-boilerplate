@@ -137,7 +137,7 @@ $baseline_px: 16px;
 //
 ///////////////////////////
 
-@mixin custom_transition($property: all, $timing: 300ms, $delay: 0) {
+@mixin custom_transition($property: all, $timing: 300ms, $delay: null) {
   // scss-lint:disable NameFormat
   @include vendor_prefix(
     transition,
