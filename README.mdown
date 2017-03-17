@@ -1,5 +1,7 @@
 # My project boilerplate
 
+> EDIT: No longer maintained.
+
 ### Base:
 
 - [Middleman](http://middlemanapp.com/)
